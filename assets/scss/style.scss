@@ -1,3 +1,61 @@
-#mainBlock {
-    margin: auto;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+
+    header {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 20vh;
+        background-color: green;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main {
+        position: absolute;
+        top: 20vh;
+        width: 80vw;
+        height: 60vh;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .blockCount {
+            width: 40vw;
+
+            #counter {
+                font-size: 3rem;
+            }
+    
+            .btn {
+                margin-bottom: 15px;
+                background-color: green;
+                color: white;
+            }
+        }
+
+        .blockMulti {
+            width: 40vw;
+        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 20vh;
+        background-color: green;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
