@@ -3,56 +3,70 @@
 (() => {
 
     let counter = Number(localStorage.getItem("count"));
-    console.log(counter);
     if (counter === null || counter === "undefined") {
         counter = 0;
     }
-    document.getElementById("counter").innerHTML = `${counter}$`;
+    document.getElementById("counter").innerHTML = counter;
 
     document.getElementById("clicker").addEventListener("click", () => {
         counter = counter + (Number(_multiplier));
         localStorage.setItem("count", counter);
-        document.getElementById("counter").innerHTML = `${counter}$`;
+        document.getElementById("counter").innerHTML = counter;
     });
 
     document.getElementById("reset").addEventListener("click", () => {
         localStorage.clear();
         document.location.reload();
-        document.getElementById("counter").innerHTML = `${counter}$`;
+        document.getElementById("counter").innerHTML = counter;
     });
+
+
+
+
 
     // John
 
-    const multiplier = document.getElementById("multiplier");
-    const clicker = document.getElementById("clicker");
-    const value = document.getElementById("counter");
-    const cost = document.getElementById("cost");
-    let _multiplier = 1;
-    let _cost = 10;
-    let sufficientFunds = false;
-
-    multiplier.addEventListener(
-        "click",
-        () => (updateUI(), false),
+    Array.from(document.querySelectorAll("button.multiplier")).forEach($btn =>
+        $btn.addEventListener(
+            "click",
+            () => (updateUI($btn.id), false),
+        )
     );
 
-    function updateUI() {
+    let sufficientFunds = false;
+    let _multiplier = 1;
+    let _cost = 10;
+
+    function updateUI(id) {
+        const cost = document.getElementById(`cost-${id}`);
+        const multiplier = document.getElementById(id);
+        const score = document.getElementById("counter");
+        const clicker = document.getElementById("clicker");
+        const inflation = 2;
+
+        _cost = Number(cost.innerHTML);
+
         balanceCheck();
+
         if (sufficientFunds) {
+            _multiplier = _multiplier * Number(multiplier.innerHTML);
+
             // Update variables
             counter = counter - _cost;
-            _multiplier *= 2;
-            _cost = 10 * _multiplier;
+            _cost = _cost * inflation;
+
             // Update UI
-            value.innerHTML = `${counter}$`;
+            score.innerHTML = counter;
             clicker.innerHTML = `Click Me (x${_multiplier})`;
-            cost.innerHTML = `${_cost}$`;
+            cost.innerHTML = _cost;
+
             // Reset balance
             sufficientFunds = false;
         }
     }
 
     function balanceCheck() {
+
         if (counter >= _cost) {
             sufficientFunds = true;
         } else {
