@@ -7,18 +7,18 @@
     if (counter === null || counter === "undefined") {
         counter = 0;
     }
-    document.getElementById("counter").innerHTML = counter;
+    document.getElementById("counter").innerHTML = `${counter}$`;
 
     document.getElementById("clicker").addEventListener("click", () => {
         counter = counter + (Number(_multiplier));
         localStorage.setItem("count", counter);
-        document.getElementById("counter").innerHTML = counter;
+        document.getElementById("counter").innerHTML = `${counter}$`;
     });
 
     document.getElementById("reset").addEventListener("click", () => {
         localStorage.clear();
         document.location.reload();
-        document.getElementById("counter").innerHTML = counter;
+        document.getElementById("counter").innerHTML = `${counter}$`;
     });
 
     // John
@@ -44,8 +44,8 @@
             _multiplier *= 2;
             _cost = 10 * _multiplier;
             // Update UI
-            value.innerHTML = counter;
-            clicker.innerHTML = `Click Me x${_multiplier}`;
+            value.innerHTML = `${counter}$`;
+            clicker.innerHTML = `Click Me (x${_multiplier})`;
             cost.innerHTML = `${_cost}$`;
             // Reset balance
             sufficientFunds = false;
