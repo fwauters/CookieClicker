@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    font-family: 'Sniglet', cursive;
+
+    header {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 20vh;
+        background-color: green;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+
+    main {
+        position: absolute;
+        top: 20vh;
+        width: 80vw;
+        height: 60vh;
+        margin: auto 10vh auto 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        
+        /* - - -Compteur - - - */
+        .blockCount {
+            width: 40vw;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .clickosaur {
+                font-size: 4rem;
+            }
+
+            #counter {
+                font-size: 3rem;
+            }
+            
+            ul {
+
+                li {
+                    list-style: none;
+                }
+            }
+
+            .btn {
+                margin-bottom: 15px;
+                background-color: green;
+                color: white;
+                border-radius: 5px;
+                width: 30vh;
+                height: 10vh;
+                font-size: 40px
+            }
+
+            #reset {
+                    margin-bottom: 15px;
+                    background-color: red;
+                    color: white;
+                    border-radius: 5px;
+                    width: 15vh;
+                    height: 5vh;
+                    font-size: 20px;
+            }
+        }
+        /* - - - Button Bonus - - - */
+        .blockMulti {
+            width: 40vw;
+
+            ul {
+
+                li {
+                    text-align: right;
+                    list-style: none;
+                    padding: 3vh;
+                    font-size: 25px
+                }
+                    button {
+                        margin-left: 20px;
+                        background-color: green;
+                        color: white;
+                        border-radius: 5px;
+                        width: 20vh;
+                        height: 4vh;
+                    }
+
+                    button:disabled{
+                        background-color: grey;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 20vh;
+        background-color: green;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }

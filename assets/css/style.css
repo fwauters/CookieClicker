@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100vh;
+  font-family: 'Sniglet', cursive;
+}
+
+body header {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 20vh;
+  background-color: green;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main {
+  position: absolute;
+  top: 20vh;
+  width: 80vw;
+  height: 60vh;
+  margin: auto 10vh auto 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* - - -Compteur - - - */
+  /* - - - Button Bonus - - - */
+}
+
+body main .blockCount {
+  width: 40vw;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .blockCount .clickosaur {
+  font-size: 4rem;
+}
+
+body main .blockCount #counter {
+  font-size: 3rem;
+}
+
+body main .blockCount ul li {
+  list-style: none;
+}
+
+body main .blockCount .btn {
+  margin-bottom: 15px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  width: 30vh;
+  height: 10vh;
+  font-size: 40px;
+}
+
+body main .blockCount #reset {
+  margin-bottom: 15px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  width: 15vh;
+  height: 5vh;
+  font-size: 20px;
+}
+
+body main .blockMulti {
+  width: 40vw;
+}
+
+body main .blockMulti ul li {
+  text-align: right;
+  list-style: none;
+  padding: 3vh;
+  font-size: 25px;
+}
+
+body main .blockMulti ul button {
+  margin-left: 20px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  width: 20vh;
+  height: 4vh;
+}
+
+body main .blockMulti ul button:disabled {
+  background-color: grey;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 20vh;
+  background-color: green;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */
