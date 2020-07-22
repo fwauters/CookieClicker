@@ -12,60 +12,37 @@
 </head>
 
 <body>
-    <section id="mainBlock">
-        <p>blablablablabla</p>
-        <p id="counter">0$</p>
-        <button id="clicker" type="button">Click Me (x1)</button>
-        <button id="reset" type="button">Reset</button>
-    </section>
 
-    <section>
-        <div>
-            Multiplier x2
-        </div>
-        <button type="button" class="multiplier" id="x2">
-            2
-        </button>
-        <div id="cost-x2">
-            10
-        </div>
-    </section>
+    <header>
+        <h1>Super Clicker !</h1>
+    </header>
 
-    <section>
-        <div>
-            Multiplier x3
-        </div>
-        <button type="button" class="multiplier" id="x3">
-            3
-        </button>
-        <div id="cost-x3">
-            25
-        </div>
-    </section>
+    <main>
+        <section class="blockCount">
+            <p class="clickosaur">Clickosaur</p>
+            <p id="counter">0</p>
+            <ul>
+                <li><button id="clicker" type="button" class="btn">Click Me (x1)</button></li>
+                <li><button id="reset" type="button" class="btn">Reset</button></li>
+            </ul>
+        </section>
 
-    <section>
-        <div>
-            Multiplier x4
-        </div>
-        <button type="button" class="multiplier" id="x4">
-            4
-        </button>
-        <div id="cost-x4">
-            50
-        </div>
-    </section>
+        <section class="blockMulti">
+            <ul>
+                <li>+2<button id="2" type="button" class="multiplier" disabled=true>5$</button></li>
+                <li>+3<button id="3" type="button" class="multiplier" disabled=true>20$</button></li>
+                <li>+4<button id="4" type="button" class="multiplier" disabled=true>50$</button></li>
+                <li>+5<button id="5" type="button" class="multiplier" disabled=true>200$</button></li>
+                <li>Autoclick<button id="autoclicker" type="button" class="option" disabled=true>5000$</button></li>
+                <li>Bonus 200%<button id="bonus" type="button" class="option" disabled=true>10000$</button></li>
+            </ul>
+        </section>
+    </main>
 
-    <section>
-        <div>
-            Multiplier x5
-        </div>
-        <button type="button" class="multiplier" id="x5">
-            5
-        </button>
-        <div id="cost-x5">
-            100
-        </div>
-    </section>
+    <footer>
+        <p>&copy; BeCode</p>
+        <p>by Loïc, John, Pierre and François</p>
+    </footer>
 
     <script src="./assets/js/clicker.js"></script>
 </body>
