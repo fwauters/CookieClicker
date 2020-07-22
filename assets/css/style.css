@@ -1,10 +1,14 @@
-body {
+* {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: 100vh;
   font-family: 'Sniglet', cursive;
+}
+
+body {
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 body header {
@@ -30,11 +34,13 @@ body header {
 }
 
 body main {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3))), url(../img/dino_bg.jpg);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%), url(../img/dino_bg.jpg);
+  background-size: cover;
   position: relative;
-  top: 20vh;
-  width: 80vw;
-  height: 80vh;
-  margin: auto 10vh auto 10vh;
+  top: 10vh;
+  width: 100vw;
+  min-height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,7 +74,15 @@ body main .blockCount .clickosaur {
 }
 
 body main .blockCount #counter {
+  margin-top: 25px;
   font-size: 3rem;
+}
+
+body main .blockCount #clicker {
+  margin-top: 25px;
+  font-size: 2rem;
+  min-height: 100px;
+  min-width: 300px;
 }
 
 body main .blockCount ul li {
@@ -86,7 +100,8 @@ body main .blockCount .btn {
 }
 
 body main .blockCount #reset {
-  margin-bottom: 200px;
+  margin-top: 25px;
+  margin-bottom: 100px;
   background-color: red;
   color: white;
   border-radius: 5px;
@@ -106,9 +121,33 @@ body main .blockMulti ul li {
   font-size: 25px;
 }
 
+body main .blockMulti ul li .b2 {
+  background-color: #2db52d;
+}
+
+body main .blockMulti ul li .b3 {
+  background-color: #0f9b0f;
+}
+
+body main .blockMulti ul li .b4 {
+  background-color: #006200;
+}
+
+body main .blockMulti ul li .b5 {
+  background-color: #003e00;
+}
+
+body main .blockMulti ul li .auto {
+  background-color: #19316b;
+}
+
+body main .blockMulti ul li .bonus {
+  background-color: #2d4783;
+  margin-bottom: 0;
+}
+
 body main .blockMulti ul button {
   margin-left: 20px;
-  background-color: green;
   color: white;
   border-radius: 5px;
   width: 20vh;
