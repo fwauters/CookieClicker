@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>Cookie Clicker</title>
@@ -17,20 +17,22 @@
 
     <main>
         <section class="blockCount">
-            <p>blablablablabla</p>
+            <p class="clickosaur">Clickosaur</p>
             <p id="counter">0</p>
-            <button id="clicker" type="button" class="btn">Click Me</button>
-            <button id="reset" type="button" class="btn">Reset</button>
+            <ul>
+                <li><button id="clicker" type="button" class="btn">Click Me</button></li>
+                <li><button id="reset" type="button" class="btn">Reset</button></li>
+            </ul>
         </section>
             
         <section class="blockMulti">
             <ul>
-                <li>+2<button id="plusTwo" type="button" class="btn" disabled=true>50$</button></li>
-                <li>+3<button id="plusThree" type="button" class="btn" disabled=true>200$</button></li>
-                <li>+4<button id="plusFour" type="button" class="btn" disabled=true>500$</button></li>
-                <li>+5<button id="plusFive" type="button" class="btn" disabled=true>2000$</button></li>
-                <li>Autoclick<button id="autoclicker" type="button" class="btn" disabled=true>5000$</button></li>
-                <li>Bonus 200%<button id="bonus" type="button" class="btn" disabled=true>10000$</button></li>
+                <li>+2<button id="x2" type="button" class="multiplier" disabled=true>50$</button></li>
+                <li>+3<button id="x3" type="button" class="multiplier" disabled=true>200$</button></li>
+                <li>+4<button id="x4" type="button" class="multiplier" disabled=true>500$</button></li>
+                <li>+5<button id="x5" type="button" class="multiplier" disabled=true>2000$</button></li>
+                <li>Autoclick<button id="autoclicker" type="button" class="multiplier" disabled=true>5000$</button></li>
+                <li>Bonus 200%<button id="bonus" type="button" class="multiplier" disabled=true>10000$</button></li>
             </ul>
         </section>
     </main>
