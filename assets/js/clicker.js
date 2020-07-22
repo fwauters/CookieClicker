@@ -1,23 +1,56 @@
 (() => {
-
-    // Base pour counter + boutons click et reset
-
+//before display of the page : Settings 
+//--------------------------------------    
+    // ---- Setting of counter ----
     let counter = localStorage.getItem("count");
-    console.log(counter);
     if (counter === null || counter === "undefined") {
         counter = 0;
     }
     document.getElementById("counter").innerHTML = counter;
+    counter = Number(counter);
+    console.log("setting counter : " + counter);
 
+    // ---- Setting of _multiplier ----
     let _multiplier = localStorage.getItem("multiplier");
-    console.log(_multiplier);
     if (_multiplier === null || _multiplier === "undefined") {
         _multiplier = 1;
     }
-    
-    //bonus flag
+    _multiplier = Number(_multiplier);
+    //set the display of the click button
+    document.getElementById("clicker").innerHTML = `Click Me (+${_multiplier})`;
+    console.log("setting _multiplier : " + _multiplier);
+
+    //---- Setting of bonus flag ----
     let bonusBoolean = false;
 
+    //---- Setting of each multiplier cost ----
+    let multiplierCost;
+    // default values if not already setted
+    let multiplierDefaultCosts=[0,0,5,20,50,200];
+    // for only indexes from 2 -> 5 : corresponding to the multiplier 2 -> 5
+    for(i=2; i<=5; i++){
+        // get values of the local stored multiplier costs with indexes =  'multiplierCost1', 'multiplierCost2', ...  'multiplierCost5'
+        multiplierCost = localStorage.getItem(`multiplierCost${i}`);
+
+        if (multiplierCost  === null || multiplierCost  === "undefined") {
+            //if no value, then default value
+            multiplierCost = multiplierDefaultCosts[i];
+        }
+        // format the multiplier cost into numeric
+        multiplierCost = Number(multiplierCost);
+        //display for each button, its cost
+        document.getElementById(i).innerHTML = `${multiplierCost}$`;
+        console.log(`multiplierCost${i} : ${multiplierCost}`);
+        localStorage.setItem(`multiplierCost${i}`, multiplierCost);
+    };
+
+    // ---- display buttons according the setted values ----
+    enableDisablePurchaseButtons();
+
+
+// events managment
+//------------------------
+    //-------- click button ------
     document.getElementById("clicker").addEventListener("click", () => {
         //if bonus activated then add twice the multiplier
         if (bonusBoolean){
@@ -27,30 +60,13 @@
         }
 
         localStorage.setItem("count", counter);
-        console.log(counter);
+        //console.log(counter);
         document.getElementById("counter").innerHTML = counter;
 
-        // Tests pour activer les autres boutons
-        if (counter >= parseInt(document.getElementById("2").textContent)) {
-            document.getElementById("2").disabled = false;
-        }
-        if (counter >= parseInt(document.getElementById("3").textContent)) {
-            document.getElementById("3").disabled = false;
-        }
-        if (counter >= parseInt(document.getElementById("4").textContent)) {
-            document.getElementById("4").disabled = false;
-        }
-        if (counter >= parseInt(document.getElementById("5").textContent)) {
-            document.getElementById("5").disabled = false;
-        }
-        if (counter >= 5000) {
-            document.getElementById("autoclicker").disabled = false;
-        }
-        if (counter >= 10000) {
-            document.getElementById("bonus").disabled = false;
-        }
+        enableDisablePurchaseButtons();
     });
 
+    //-------- reset button ------
     document.getElementById("reset").addEventListener("click", () => {
         localStorage.clear();
         document.location.reload();
@@ -65,8 +81,7 @@
         document.getElementById("bonus").disabled = true;
     });
 
-    // Boutons multiplicateurs et bonus
-
+    // ------- Boutons multiplicateurs -------
     Array.from(document.querySelectorAll("button.multiplier")).forEach($btn =>
         $btn.addEventListener(
             "click",
@@ -74,18 +89,18 @@
         )
     );
 
-
+    //-------- AutoClick button ------
     document.getElementById("autoclicker").addEventListener("click", () => {
         AutoClicker();
     });
 
+    //-------- bonus button ------
     document.getElementById("bonus").addEventListener("click", () => {
-        //gets the current counter
+        //get the current counter
         counter = parseInt(localStorage.getItem("count"));
         let bonusPrice = parseInt(document.getElementById("bonus").innerHTML,10);
 
-        //let counter = parseInt(document.getElementById("counter").innerHTML);
-        //if the counter > the required price
+        //if enough to get the bonus
         if (counter > bonusPrice) {
             //reduces the counter
             counter = counter - bonusPrice;
@@ -94,21 +109,24 @@
             //displays the new value of the counter
             document.getElementById("counter").innerHTML = counter;
             
+            //activates the bonus flag 
+            bonusBoolean = true;
+
             //saves the display of the button click-me , before activating the bonus
             let clickMePreviousDisplayString = document.getElementById("clicker").innerHTML;
 
             //sets the bonus button disabled
-            document.getElementById("bonus").disabled = true;
+            //document.getElementById("bonus").disabled = true;
 
-            //activates the bonus flag 
-            bonusBoolean = true;
+            //update display of purchase button
+            enableDisablePurchaseButtons();
 
             //sets the timer at start time
             let time = 10;
             //launches the count down on the timer
             var x = setInterval(function () {
                 //sets the click button with the new display
-                document.getElementById("clicker").innerHTML = `Bonus 200% for ${time}s (+${_multiplier*2})`;
+                document.getElementById("clicker").innerHTML = `BONUS ${time}s (+${_multiplier*2})`;
 
                 //decreases the timer
                 time = time - 1;
@@ -124,14 +142,14 @@
                     //displays in the button clicker, the previous counter display
                     document.getElementById("clicker").innerHTML = clickMePreviousDisplayString;
                     //sets the bonus button enabled
-                    document.getElementById("bonus").disabled = false;
+                    //document.getElementById("bonus").disabled = false;
                 }
             }, 1000);
         }
     });
 
-
-    // Fonctions
+// -------- Fonctions ----------
+//------------------------------
     let priceAC = 5000; // Valeur temporaire du prix
     function autoAdd() {
         //counter++; // +1
@@ -141,17 +159,19 @@
         } else {
             counter = counter + _multiplier;
         }
+        localStorage.setItem("count", counter);
         document.getElementById("counter").innerHTML = counter; // Afficher
+        enableDisablePurchaseButtons();
     }
+
     function AutoClicker() { // Fonction autoclick
         if (counter >= priceAC) {   // Pas de négatif
             counter -= priceAC; // Retirer les points               
+            enableDisablePurchaseButtons();
             autoAdd(); // Appel de la fonction qui fait +1
             setInterval(autoAdd, 1000); // Intervalle d'une seconde
         }
     }
-
-    // John
 
     function updateUI(id) {
         const multiplier = document.getElementById(id);
@@ -165,14 +185,50 @@
 
         // Update variables
         counter = counter - cost;
+        // saves the counter
+        localStorage.setItem("count", counter);
+
         cost = cost * inflation;
+        
+        // saves the new cost of the chosen multiplier
+        localStorage.setItem(`multiplierCost${id}`, cost);
+        //display in console
+        console.log(`id = ${id} , multiplierCost${id} = ` + localStorage.getItem(`multiplierCost${id}`));
 
         // Update UI
         score.innerHTML = counter;
         clicker.innerHTML = `Click Me (+${_multiplier})`;
-        multiplier.innerHTML = `${cost} $`;
+        multiplier.innerHTML = `${cost}$`;
         document.getElementById(id).disabled = true;
+        localStorage.setItem("multiplier", _multiplier);
+        enableDisablePurchaseButtons();
+    }
 
+    function enableDisablePurchaseButtons(){
+        //counter = parseInt(localStorage.getItem("count"));
+        // Tests pour activer les autres boutons
+        console.log("display buttons : counter = " + counter);
+
+        for(i=2; i<=5;i++){
+            console.log(`display buttons : id = ${i} , multiplierCost${i} = ` + localStorage.getItem(`multiplierCost${i}`));
+            if (counter >= parseInt(localStorage.getItem(`multiplierCost${i}`))){
+                document.getElementById(i).disabled = false;
+            } else {
+                document.getElementById(i).disabled = true;
+            }
+        }
+        // if enough money to get the autoclicker
+        if (counter >= 5000) {
+            document.getElementById("autoclicker").disabled = false;
+        } else {
+            document.getElementById("autoclicker").disabled = true;
+        }
+        // if enough money to get the Bonus & if the bonusBoolean is not active, then set the button bonnus active
+        if (counter >= 10000 && bonusBoolean == false) {
+            document.getElementById("bonus").disabled = false;
+        } else {
+            document.getElementById("bonus").disabled = true;
+        }
     }
 
 })();
