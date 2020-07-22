@@ -86,3 +86,4 @@ document.getElementById("clicker").addEventListener("click", () => {
     //document.getElementById("counter").innerHTML = counter.toString(10);
     document.getElementById("counter").innerHTML = localStorage.getItem("count");
 });
+
