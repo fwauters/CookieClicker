@@ -8,7 +8,7 @@
         }
         document.getElementById("counter").innerHTML = new Intl.NumberFormat().format(counter) + " $";
         counter = Number(counter);
-        console.log("setting counter : " + counter);
+        //console.log("setting counter : " + counter);
     
         // ---- Setting of _multiplier ----
         let _multiplier = localStorage.getItem("multiplier");
@@ -18,7 +18,7 @@
         _multiplier = Number(_multiplier);
         //set the display of the click button
         document.getElementById("clicker").innerHTML = `Click Me (+${_multiplier})`;
-        console.log("setting _multiplier : " + _multiplier);
+        //console.log("setting _multiplier : " + _multiplier);
     
         //---- Setting of bonus flag ----
         let bonusBoolean = false;
@@ -40,7 +40,7 @@
             multiplierCost = Number(multiplierCost);
             //display for each button, its cost
             document.getElementById(i).innerHTML = new Intl.NumberFormat().format(multiplierCost) + " $";
-            console.log(`multiplierCost${i} : ${multiplierCost}`);
+            //console.log(`multiplierCost${i} : ${multiplierCost}`);
             localStorage.setItem(`multiplierCost${i}`, multiplierCost);
         };
     
@@ -180,6 +180,7 @@
             const inflation = 2;
     
             let cost = parseInt((multiplier.innerHTML), 10);
+            console.log(cost);
     
             _multiplier = _multiplier * Number(id);
     
@@ -193,12 +194,12 @@
             // saves the new cost of the chosen multiplier
             localStorage.setItem(`multiplierCost${id}`, cost);
             //display in console
-            console.log(`id = ${id} , multiplierCost${id} = ` + localStorage.getItem(`multiplierCost${id}`));
+            //console.log(`id = ${id} , multiplierCost${id} = ` + localStorage.getItem(`multiplierCost${id}`));
     
             // Update UI
             score.innerHTML = new Intl.NumberFormat().format(counter) + " $";
             clicker.innerHTML = `Click Me (+${_multiplier})`;
-            multiplier.innerHTML = new Intl.NumberFormat().format(cost) + " $";
+            multiplier.innerHTML = cost + " $";
             document.getElementById(id).disabled = true;
             localStorage.setItem("multiplier", _multiplier);
             enableDisablePurchaseButtons();
@@ -207,10 +208,10 @@
         function enableDisablePurchaseButtons(){
             //counter = parseInt(localStorage.getItem("count"));
             // Tests pour activer les autres boutons
-            console.log("display buttons : counter = " + counter);
+            //console.log("display buttons : counter = " + counter);
     
             for(i=2; i<=5;i++){
-                console.log(`display buttons : id = ${i} , multiplierCost${i} = ` + localStorage.getItem(`multiplierCost${i}`));
+                //console.log(`display buttons : id = ${i} , multiplierCost${i} = ` + localStorage.getItem(`multiplierCost${i}`));
                 if (counter >= parseInt(localStorage.getItem(`multiplierCost${i}`))){
                     document.getElementById(i).disabled = false;
                 } else {
