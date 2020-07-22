@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sniglet', cursive;
+    
+}
+
+body { 
+    height: 100vh;
+    overflow-y: hidden;
+
+    header {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 10vh;
+        background-color: green;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+
+    main {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%), url(../img/dino_bg.jpg);
+        background-size: cover;
+        position: relative;
+        top: 10vh;
+        width: 100vw;
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+
+        
+        /* - - -Compteur - - - */
+        .blockCount {
+            width: 40vw;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .clickosaur {
+                font-size: 4rem;
+            }
+
+            #counter {
+                margin-top: 25px;
+                font-size: 3rem;
+            }
+            
+            #clicker {
+                margin-top: 25px;
+                font-size: 2rem;
+                min-height: 100px;
+                min-width: 300px;
+            }
+
+            ul {
+
+                li {
+                    list-style: none;
+                }
+            }
+
+            .btn {
+                margin-bottom: 15px;
+                background-color: green;
+                color: white;
+                border-radius: 5px;
+                width: 30vh;  
+                height: 10vh;               
+                font-size: 40px
+            }
+
+            #reset {
+                margin-top: 25px;
+                    margin-bottom: 100px;
+                    background-color: red;
+                    color: white;
+                    border-radius: 5px;
+                    width: 15vh;
+                    height: 5vh;
+                    font-size: 20px;
+            }
+        }
+        /* - - - Button Bonus - - - */
+        .blockMulti {
+            width: 40vw;
+
+            ul {
+
+                li {
+                    text-align: right;
+                    list-style: none;
+                    padding: 3vh;
+                    font-size: 25px;
+
+                    .b2 {
+                        background-color: #2db52d;
+                    }
+        
+                    .b3 {
+                        background-color: #0f9b0f;
+                    }
+        
+                    .b4 {
+                        background-color: #006200;
+                    }
+        
+                    .b5 {
+                        background-color: #003e00;
+                    }
+
+                    .auto {
+                        background-color: #19316b;
+                    }
+
+                    .bonus {
+                        background-color: #2d4783;
+                        margin-bottom: 0;
+                    }
+                }
+                    button {
+                        margin-left: 20px;
+                        color: white;
+                        border-radius: 5px;
+                        width: 20vh;
+                        height: 4vh;
+                    }
+
+                    button:disabled{
+                        background-color: grey;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 10vh;
+        background-color: green;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
