@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-family: 'Sniglet', cursive;
 }
 
@@ -18,35 +17,21 @@ body header {
   height: 10vh;
   background-color: green;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 body main {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3))), url(../img/dino_bg.jpg);
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%), url(../img/dino_bg.jpg);
   background-size: cover;
   position: relative;
   top: 10vh;
   width: 100vw;
   min-height: 80vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   /* - - -Compteur - - - */
   /* - - - Button Bonus - - - */
 }
@@ -54,19 +39,10 @@ body main {
 body main .blockCount {
   width: 40vw;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 body main .blockCount .clickosaur {
@@ -121,29 +97,32 @@ body main .blockMulti ul li {
   font-size: 25px;
 }
 
-body main .blockMulti ul li .b2 {
+body main .blockMulti ul .b2 {
   background-color: #2db52d;
 }
 
-body main .blockMulti ul li .b3 {
+body main .blockMulti ul .b3 {
   background-color: #0f9b0f;
 }
 
-body main .blockMulti ul li .b4 {
+body main .blockMulti ul .b4 {
   background-color: #006200;
 }
 
-body main .blockMulti ul li .b5 {
+body main .blockMulti ul .b5 {
   background-color: #003e00;
 }
 
-body main .blockMulti ul li .auto {
+body main .blockMulti ul .auto {
   background-color: #19316b;
 }
 
-body main .blockMulti ul li .bonus {
+body main .blockMulti ul .bonus {
   background-color: #2d4783;
-  margin-bottom: 0;
+}
+
+body main .blockMulti ul .dino {
+  background-color: orangered;
 }
 
 body main .blockMulti ul button {
@@ -165,18 +144,8 @@ footer {
   height: 10vh;
   background-color: green;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-/*# sourceMappingURL=style.css.map */
